@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MICU STORE</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+    body {
+      margin: 0;
+      padding: 30px 15px;
+      font-family: 'Share Tech Mono', monospace;
+      background: #000;
+      color: #E902FF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      background-image: linear-gradient(to bottom, #000000, #590162);
+      animation: matrixScroll 30s linear infinite;
+    }
+    @keyframes matrixScroll { from { background-position: 0 0; } to { background-position: 0 1000px; } }
+    h1 { color: #FF03C7; text-align: center; font-size: 1.8em; margin-bottom: 10px; }
+    h2 { color: #FF03C7; text-align: center; font-size: 1.0em; margin-bottom: 10px; }
+    .thumbnail { width: 160px; height: 160px; border-radius: 12px; box-shadow: 0 0 20px #FF03C7; margin: 20px 0; }
+    .section { width: 100%; max-width: 700px; margin-bottom: 40px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #E902FF; padding: 10px; text-align: center; }
+    th { color: #000; }
+    td { background-color: rgba(0, 30, 0, 0.6); color: #fff; }
+    .bot th { background-color: #00cc66; }
+    .userbot th { background-color: #3399ff; }
+    .nokos th { background-color: #ffcc00; }
+    .push th { background-color: #ff66cc; }
+    .premium th { background-color: #ff6666; }
+    button { background-color: #FF03C7; color: black; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-family: inherit; box-shadow: 0 0 10px #FF03C7; cursor: pointer; transition: all 0.2s ease-in-out; }
+    button:hover { transform: scale(1.05); }
+    hr { width: 80%; border: none; height: 1px; background-color: #600169; margin: 30px 0; }
+    .note { color: #ccc; font-size: 0.9em; text-align: center; }
+    input, select, textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #FF03C7; background: rgba(0,0,0,0.5); color: #fff; font-family: inherit; }
+  </style>
+</head>
+<body>
+  <h1>ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴍɪᴄᴜ sᴛᴏʀᴇ</h1>
+  <img src="https://files.catbox.moe/cd20af.jpg" class="thumbnail" />
+  <h2>Isi Semua Data Di Bawah Lalu Tekan Kirim Dan Sertakan Bukti Trandfer</h2>
+
+  <!-- Form Order -->
+  <div class="section">
+    <form id="orderForm">
+      <input type="text" id="nama" placeholder="Nama Lengkap" required>
+      <input type="text" id="telegram" placeholder="Username Telegram" required>
+
+      <select id="produk" required>
+        <option value="">-- Pilih Produk --</option>
+        <option value="BOT 1 Bulan" data-harga="15000">ʙᴏᴛ 1 ʙᴜʟᴀɴ (Rp15.000)</option>
+        <option value="BOT 3 Bulan" data-harga="45000">ʙᴏᴛ 3 ʙᴜʟᴀɴ (Rp45.000)</option>
+        <option value="Userbot Private 10" data-harga="100000">ᴜsᴇʀʙᴏᴛ 1 ᴘʀɪᴠᴀᴛᴇ (10 User Rp100.000)</option>
+        <option value="Userbot Private 20" data-harga="190000">ᴜsᴇʀʙᴏᴛ 1 ᴘʀɪᴠᴀᴛᴇ (20 User Rp190.000)</option>
+        <option value="Userbot Private 30" data-harga="280000">ᴜsᴇʀʙᴏᴛ 1 ᴘʀɪᴠᴀᴛᴇ (30 User Rp280.000)</option>
+        <option value="Userbot Private 40" data-harga="370000">ᴜsᴇʀʙᴏᴛ 1 ᴘʀɪᴠᴀᴛᴇ (40 User Rp370.000)</option>
+        <option value="Userbot Private 50" data-harga="460000">ᴜsᴇʀʙᴏᴛ 1 ᴘʀɪᴠᴀᴛᴇ (50 User Rp460.000)</option>
+        <option value="Nokos ID1" data-harga="55000">ɴᴏᴋᴏs ID1 (Rp55.000)</option>
+        <option value="Nokos ID5" data-harga="35000">ɴᴏᴋᴏs ID5 (Rp35.000)</option>
+        <option value="Nokos ID6" data-harga="15000">ɴᴏᴋᴏs ID6 (Rp15.000)</option>
+        <option value="Push Member 1K" data-harga="55000">ᴘᴜsʜ ᴍᴇᴍʙᴇʀ 1K (Rp55.000)</option>
+        <option value="Telegram Premium 1 Bulan" data-harga="55000">ᴛᴇʟᴇ ᴘʀᴇᴍɪᴜᴍ 1 Bulan (Rp55.000)</option>
+        <option value="Telegram Premium 3 Bulan" data-harga="225000">ᴛᴇʟᴇ ᴘʀᴇᴍɪᴜᴍ 3 Bulan (Rp225.000)</option>
+      </select>
+
+      <input type="number" id="jumlah" placeholder="Jumlah" required>
+
+      <!-- Box total harga -->
+      <div id="totalHargaBox" style="color:#66ffcc; font-weight:bold; margin:10px 0; border:1px solid #66ffcc; padding:10px; border-radius:8px;">
+        Total: Rp0
+      </div>
+
+      <!-- Kode Promo -->
+      <input type="text" id="promo" placeholder="Kode Promo Jika Ada">
+      <div id="promoInfo" style="color:#ffcc00; font-size:0.9em;"></div>
+
+      <textarea id="catatan" placeholder="Catatan (opsional)"></textarea>
+
+      <button type="button" id="lanjutBayar">Lanjut ke Pembayaran</button>
+    </form>
+  </div>
+
+  <div class="note">Username Telegram: <strong>MICU</strong></div>
+  <hr />
+  <!-- Produk Section (Grid/Table with Highlight) -->
+  <div class="section">
+    <table class="bot">
+      <tr><th colspan="2">🤍 ʟɪsᴛ ʙᴏᴛ sᴀᴛᴜᴀɴ 🤍</th></tr>
+      <tr><td>1 Bulan</td><td>Rp15.000</td></tr>
+      <tr><td>3 Bulan</td><td>Rp45.000</td></tr>
+    </table>
+
+    <table class="userbot">
+      <tr><th colspan="2">🤍 ʟɪsᴛ ᴜsᴇʀʙᴏᴛ 1 ᴘʀɪᴠᴀᴛᴇ 🤍</th></tr>
+      <tr><td>10 User</td><td>Rp100.000</td></tr>
+      <tr><td>20 User</td><td>Rp190.000</td></tr>
+      <tr><td>30 User</td><td>Rp280.000</td></tr>
+      <tr><td>40 User</td><td>Rp370.000</td></tr>
+      <tr><td>50 User</td><td>Rp460.000</td></tr>
+    </table>
+
+    <table class="nokos">
+      <tr><th colspan="2">✨ ɴᴏᴋᴏs ✨</th></tr>
+      <tr><td>ID 1</td><td>Rp55.000</td></tr>
+      <tr><td>ID 5</td><td>Rp35.000</td></tr>
+      <tr><td>ID 6</td><td>Rp15.000</td></tr>
+    </table>
+
+    <table class="push">
+      <tr><th colspan="2">🎀 ᴘᴜsʜ ᴍᴇᴍʙᴇʀ ɢᴄ / ᴄʜ 🎀</th></tr>
+      <tr><td>1K Member</td><td>Rp55.000</td></tr>
+    </table>
+
+    <table class="premium">
+      <tr><th colspan="2">💲 ᴛᴇʟᴇ ᴘʀᴇᴍɪᴜᴍ 💲</th></tr>
+      <tr><td>1 Bulan</td><td>Rp55.000</td></tr>
+      <tr><td>3 Bulan</td><td>Rp225.000</td></tr>
+    </table>
+  </div>
+  <script>
+    const telegramAdmin = "admsecretsbot"; // username telegram admin
+
+    const promoCodes = {
+      "MICUIMUT": 0.03,
+      "MICUCANTIK": 0.05
+    };
+
+    function updateTotal() {
+      const produkSelect = document.getElementById("produk");
+      const harga = parseInt(produkSelect.selectedOptions[0]?.dataset.harga || 0);
+      const jumlah = parseInt(document.getElementById("jumlah").value || 0);
+      let total = harga * jumlah;
+
+      const promoInput = document.getElementById("promo").value.trim().toUpperCase();
+      const promoInfo = document.getElementById("promoInfo");
+
+      if (promoCodes[promoInput]) {
+        const diskon = promoCodes[promoInput];
+        const potongan = total * diskon;
+        total -= potongan;
+        promoInfo.innerText = `Kode promo diterapkan! Diskon ${diskon * 100}% (-Rp${potongan.toLocaleString("id-ID")})`;
+      } else if (promoInput) {
+        promoInfo.innerText = "Kode promo tidak valid.";
+      } else {
+        promoInfo.innerText = "";
+      }
+
+      document.getElementById("totalHargaBox").innerText =
+        total > 0 ? `Total: Rp${total.toLocaleString("id-ID")}` : "Total: Rp0";
+
+      return total;
+    }
+
+    document.getElementById("produk").addEventListener("change", updateTotal);
+    document.getElementById("jumlah").addEventListener("input", updateTotal);
+    document.getElementById("promo").addEventListener("input", updateTotal);
+
+    document.getElementById("lanjutBayar").addEventListener("click", function() {
+      const idOrder = "ORD-" + Date.now();
+      const nama = document.getElementById("nama").value;
+      const telegram = document.getElementById("telegram").value;
+      const produk = document.getElementById("produk").value;
+      const jumlah = document.getElementById("jumlah").value;
+      const catatan = document.getElementById("catatan").value;
+      const totalHarga = updateTotal();
+
+      if (!totalHarga) { alert("Mohon pilih produk dan jumlah terlebih dahulu."); return; }
+      if (!nama || !telegram || !produk || !jumlah) {
+        alert("Mohon isi semua data terlebih dahulu.");
+        return;
+      }
+
+      const pesan = `Halo Admin, saya ingin order:%0A🧾 ID Order: ${idOrder}%0A👤 Nama: ${nama}%0A📱 Telegram: @${telegram}%0A📦 Produk: ${produk}%0A🔢 Jumlah: ${jumlah}%0A💰 Total: Rp${totalHarga.toLocaleString("id-ID")}%0A📝 Catatan: ${catatan}`;
+      window.open(`https://t.me/${telegramAdmin}?text=${pesan}`, "_blank");
+    });
+
+    window.addEventListener("load", updateTotal);
+  </script>
+</body>
+</html>
