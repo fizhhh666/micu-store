@@ -175,7 +175,7 @@
         return;
       }
 
-      const pesan = `Halo Admin, saya ingin order:%0A🧾 ID Order: ${idOrder}%0A👤 Nama: ${nama}%0A📱 Telegram: @${telegram}%0A📦 Produk: ${produk}%0A🔢 Jumlah: ${jumlah}%0A💰 Total: Rp${totalHarga.toLocaleString("id-ID")}%0A📝 Catatan: ${catatan}`;
+      const pesan = `Halo Kak, saya ingin order:%0A🧾 ID Order: ${idOrder}%0A👤 Nama: ${nama}%0A📱 Telegram: @${telegram}%0A📦 Produk: ${produk}%0A🔢 Jumlah: ${jumlah}%0A💰 Total: Rp${totalHarga.toLocaleString("id-ID")}%0A📝 Catatan: ${catatan}`;
       window.open(`https://t.me/${telegramAdmin}?text=${pesan}`, "_blank");
     });
 
